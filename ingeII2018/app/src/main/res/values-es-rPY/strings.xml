@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sistema de Gestión de Proyecto</string>
+    <string name="contrasenha">Contraseña</string>
+    <string name="modificar">Modificar</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="not_log_in">No se pudo iniciar sesión</string>
+    <string name="log_out">Cerrar Sesión</string>
+    <string name="revoke">Revocar</string>
+    <string name="not_close_session">No se pudo cerrar sesión</string>
+    <string name="not_revoke">No se pudo revocar el acceso</string>
+    <string name="not_account">No esta registrado en el sistema SGP</string>
+</resources>

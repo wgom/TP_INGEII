@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Project Management System</string>
+    <string name="contrasenha">Password</string>
+    <string name="modificar">Modify</string>
+    <string name="mensaje">Message</string>
+    <string name="not_log_in">Unable to login</string>
+    <string name="log_out">Log Out</string>
+    <string name="revoke">Revoke</string>
+    <string name="not_close_session">Unable to log out</string>
+    <string name="not_revoke">Unable to revoke access</string>
+    <string name="not_account">It is not registered in the SGP system</string>
+</resources>
