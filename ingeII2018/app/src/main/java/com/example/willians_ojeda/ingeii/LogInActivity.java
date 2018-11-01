@@ -44,7 +44,7 @@ public class LogInActivity extends AppCompatActivity implements GoogleApiClient.
     private String mail;
     private String rest_mail;
 
-    private final String urlHttp = "http://192.168.0.12:8080/WSSGP/webresources/inge2_sgp.entities.usuarios/";
+    private final String urlHttp = Constante.ipService+"/WSSGP/webresources/inge2_sgp.entities.usuarios/";
 
     private ProgressDialog dialogo;
 

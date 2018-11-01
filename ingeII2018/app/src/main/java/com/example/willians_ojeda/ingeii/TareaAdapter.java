@@ -37,7 +37,7 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.Item> {
 
     private List<Tareas> list;
     private Context context;
-    private final String urlHttp = "http://192.168.0.12:8080/WSSGP/webresources/inge2_sgp.entities.usuarios/";
+    private final String urlHttp = Constante.ipService+"/WSSGP/webresources/inge2_sgp.entities.usuarios/";
     String respStr = "";
     private ProgressDialog dialogo;
 
@@ -56,7 +56,7 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.Item> {
 
     @Override
     public void onBindViewHolder(@NonNull Item item, final int i) {
-        item.usuario.setText(list.get(i).getUsuario());
+        item.usuario.setText(list.get(i).getUsuario().getUsuario());
         item.editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +67,7 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.Item> {
         item.eliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Eliminar eliminar = new Eliminar(list.get(i));
+                Eliminar eliminar = new Eliminar(list.get(i).getUsuario());
                 eliminar.execute();
             }
         });

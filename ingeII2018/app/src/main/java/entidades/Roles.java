@@ -126,7 +126,7 @@ public class Roles implements Serializable {
 
     @Override
     public String toString() {
-        return "inge2_sgp.entities.Roles[ idRol=" + idRol + " ]";
+        return nombreRol;
     }
     
 }

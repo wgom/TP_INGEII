@@ -3,6 +3,7 @@ package com.example.willians_ojeda.ingeii;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -28,6 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import entidades.Usuarios;
 
@@ -39,11 +41,14 @@ public class UsuariosFragment extends Fragment {
     private Button btnAgregar;
     private ProgressDialog dialogo;
 
-    private final String urlHttp = "http://192.168.0.12:8080/WSSGP/webresources/inge2_sgp.entities.usuarios/";
+    private final String urlHttp = Constante.ipService+"/WSSGP/webresources/inge2_sgp.entities.usuarios/";
 
     private RecyclerView recycler;
 
     String respStr = "";
+    UsuariosFragment usuariosFragment;
+
+
     public UsuariosFragment() {
         // Required empty public constructor
     }
@@ -63,10 +68,13 @@ public class UsuariosFragment extends Fragment {
         btnAgregar = view.findViewById(R.id.btn_agregar_usuario);
         dialogo = new ProgressDialog(view.getContext());
 
+
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity()
+                        , UsuarioActivity.class);
+                startActivity(intent);
             }
         });
         return view;
@@ -75,9 +83,16 @@ public class UsuariosFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
+        usuariosFragment = this;
         Consultar consultar = new Consultar();
         consultar.execute();
+    }
+
+    public void setListUsuarios(List<Usuarios> usuariosList) {
+        UsuarioAdapter usuarioAdapter = new UsuarioAdapter(
+                usuariosList, getContext(), usuariosFragment);
+
+        recycler.setAdapter(usuarioAdapter);
     }
 
     private class Consultar extends AsyncTask<Void , Void, Boolean> {
@@ -155,10 +170,8 @@ public class UsuariosFragment extends Fragment {
                         });
                 alertDialog.show();
             }
-            UsuarioAdapter usuarioAdapter = new UsuarioAdapter(
-                    usuariosList, getContext());
 
-            recycler.setAdapter(usuarioAdapter);
+            setListUsuarios(usuariosList);
         }
 
     }

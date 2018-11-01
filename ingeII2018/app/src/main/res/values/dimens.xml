@@ -7,4 +7,5 @@
     <dimen name="height_cardView_clientes">55dp</dimen>
     <dimen name="margenes_cardView">5dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="margenesSpinner">10dp</dimen>
 </resources>

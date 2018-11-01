@@ -36,14 +36,16 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Item> {
 
     private List<Usuarios> list;
     private Context context;
-    private final String urlHttp = "http://192.168.0.12:8080/WSSGP/webresources/inge2_sgp.entities.usuarios/";
+    private final String urlHttp = Constante.ipService+"/WSSGP/webresources/inge2_sgp.entities.usuarios/";
     String respStr = "";
     private ProgressDialog dialogo;
+    private UsuariosFragment usuariosFragment;
 
-    public UsuarioAdapter(List<Usuarios> list, Context context) {
+    public UsuarioAdapter(List<Usuarios> list, Context context, UsuariosFragment usuariosFragment) {
         this.list = list;
         this.context = context;
         dialogo = new ProgressDialog(context);
+        this.usuariosFragment = usuariosFragment;
     }
 
     @NonNull
@@ -160,6 +162,8 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.Item> {
                 alertDialog.show();
             }else{
                 Toast.makeText(context, "Eliminado", Toast.LENGTH_SHORT).show();
+                list.remove(u);
+                usuariosFragment.setListUsuarios(list);
             }
            
         }

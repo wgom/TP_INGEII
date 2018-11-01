@@ -10,4 +10,5 @@
     <string name="not_close_session">Unable to log out</string>
     <string name="not_revoke">Unable to revoke access</string>
     <string name="not_account">It is not registered in the SGP system</string>
+
 </resources>
